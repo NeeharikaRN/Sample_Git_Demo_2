@@ -30,4 +30,4 @@ jobs:
         aws eks --region us-east-1 update-kubeconfig --name demo-eks-cluster  # Replace with your cluster name
     - name: Run kubectl command
       run: |
-        kubectl deploy -f deploy.yaml
+        kubectl apply -f deploy.yaml
