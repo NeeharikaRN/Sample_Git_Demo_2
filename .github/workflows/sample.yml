@@ -31,3 +31,4 @@ jobs:
     - name: Run kubectl command
       run: |
         kubectl apply -f deploy.yaml
+        kubectl get svc
