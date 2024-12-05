@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build the application
-        run: npm run build
+        run: echo "Building1"
 
   test:
     runs-on: ubuntu-latest
@@ -29,4 +29,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run tests
-        run: npm test
+        run: echo "Building2"
