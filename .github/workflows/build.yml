@@ -12,13 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+      - uses: actions/checkout@v2
+        run: echo "Hello world"
 
-      - name: Install dependencies
-        run: npm install
+      - uses: actions/checkout@v2
+        run: echo "Hello world1"
 
-      - name: Build the application
-        run: echo "Building"
+      - uses: actions/checkout@v2
+        run: echo "Hello world1"
