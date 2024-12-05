@@ -15,8 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy application
-        run: echo "Deployment Completed"
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Deploy application
-        run: echo "Deployment Completed"
+      - name: Checkout code
+        uses: actions/checkout@v2
+
