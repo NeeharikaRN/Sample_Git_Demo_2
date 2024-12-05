@@ -18,8 +18,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build the application
-        run: echo "Building1"
+      - name: Deploy application
+        run: echo "Deployment Completed"
 
   test:
     runs-on: ubuntu-latest
@@ -28,5 +28,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run tests
-        run: echo "Building2"
+      - name: Deploy application
+        run: echo "Deployment Completed"
