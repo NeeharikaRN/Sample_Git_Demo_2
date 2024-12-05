@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       branch: 
-        description: somya
+        description: workflow
         required: true
         type: string
 
