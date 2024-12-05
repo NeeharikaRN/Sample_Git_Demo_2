@@ -1,35 +1,40 @@
-name: DeployGameApp
+# This is a basic workflow to help you get started with Actions
+
+name: CI
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "master" ]
+    branches: 
+      - master
   pull_request:
     branches: [ "master" ]
 
 jobs:
-  LogintodockerhubDEV:
+  lint:
     runs-on: ubuntu-latest
-    environment: Dev
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up AWS CLI
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1  # Specify your region here
-    - name: Install kubectl
-      run: |
-        curl -LO "https://dl.k8s.io/release/v1.27.3/bin/linux/amd64/kubectl"  # Specify kubectl version here
-        chmod +x ./kubectl
-        sudo mv ./kubectl /usr/local/bin/kubectl
-    - name: Authenticate to EKS
-      run: |
-        aws eks --region us-east-1 update-kubeconfig --name demo-eks-cluster  # Replace with your cluster name
-    - name: Run kubectl command
-      run: |
-        kubectl apply -f deploy.yaml
-        kubectl get svc
-        kubectl get pods
+      - uses: actions/checkout@v2
+      - run: echo "Hello world"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "Hello world"
+  publish:
+    runs-on: ubuntu-latest
+    needs:
+      - lint
+      - test
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "Hello world"
+  test1:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "hello Test"
