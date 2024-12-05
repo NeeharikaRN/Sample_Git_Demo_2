@@ -1,0 +1,23 @@
+name: Setup Workflow
+
+on:
+  workflow_call:
+    inputs:
+      branch: 
+        description: workflow
+        required: true
+        type: string
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
